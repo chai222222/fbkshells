@@ -19,14 +19,15 @@ iconv -f cp932 -t utf8 商品マスタ.CSV > 商品マスタUTF8.CSV
 １コマンドでうまくいかなかったので２つ作成
 
 ```
-fbkcsvedit.sh < 商品マスタUTF8.CSV | zenhan.sh > 商品マスタUTF8_FILTERED.CSV
+cat 商品マスタUTF8.CSV | fbkcsvedit.sh | zenhan.sh > 商品マスタUTF8_FILTERED.CSV
 ```
 
 - fbkcsvedit.sh
   - フィルタする
 - zenhan.sh
   - 商品名の全角半角処理をする
-
+- 商品マスタUTF8_FILTERED.CSV
+  - フィルタ・商品名変換後の csv ファイル
 
 #### 現状のフィルタデータ
 

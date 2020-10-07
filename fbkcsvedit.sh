@@ -4,7 +4,7 @@
 # csvを必要なカラムを編集する
 #
 
-nawk -F"," -v ORS='\r\n' -v RS='\r\n' '
+awk -F"," -v ORS='\r\n' -v RS='\r\n' '
 function setArr(str, arr,   narr) {
   split(str, narr, ",");
   for (e in narr) arr[narr[e]] = 1;
