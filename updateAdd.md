@@ -11,6 +11,23 @@
 
 ## 使い方
 
+fbkshellsで `git clone` して最新状態にする。
+
 ```sh
+fbkcsv2json.sh < 商品マスタUTF8_フィルタ済み_名前変換済み.CSV > data.json
+```
 
+これにより `商品マスタUTF8_フィルタ済み_名前変換済み.CSV` 内の csv を元に jangetter の json 出力と同じ結果を得ることができる。
+このあとに
 
+```sh
+zaicoregister  -c -m updateAdd data.json
+```
+
+とすることにより、更新・追加ができる。
+
+```sh
+zaicoregister --dryrun -c -m updateAdd data.json
+```
+
+で実際に登録しないで何が更新・登録できるかが確認できる。
