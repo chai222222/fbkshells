@@ -17,7 +17,7 @@ function optstr(  opts) {
     if (colIdx[fOpt[e]]) opts = opts (length(opts) == 0 ? "{ " : ",{ ") kv("name", fOpt[e]) ", " kvstr("value", fOpt[e]) " }";
   }
   if (length(opts) == 0) return "";
-  return ", \"optional_attribute\": [ " opts " ]";
+  return ", \"optional_attributes\": [ " opts " ]";
 }
 BEGIN {
   fJanCode = "商品コード";
