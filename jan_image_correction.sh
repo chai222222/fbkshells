@@ -33,7 +33,7 @@ checkDir() {
   }
   ' > $IMGS2
   cmp -s $IMGS1 $IMGS2
-  echo $?
+  return $?
 }
 
 # 対象ディレクトリからデータ変換します・
@@ -86,8 +86,8 @@ type identify > /dev/null 2>&1
 
 for DIR in $*
 do
-  CHK=`checkDir $DIR`
-  if [[ $CHK != 0 ]]; then
+  checkDir $DIR
+  if [[ $? != 0 ]]; then
     correctionDir $DIR
   else
     echo "$DIR は補正対象がないため処理を行いません。"
