@@ -32,8 +32,6 @@ checkDir() {
     if ($2 != "JPEG" || wh[1] - wh[2] < 0) print $1;
   }
   ' > $IMGS2
-  cmp -s $IMGS1 $IMGS2
-  return $?
 }
 
 # 対象ディレクトリからデータ変換します・
@@ -87,7 +85,7 @@ type identify > /dev/null 2>&1
 for DIR in $*
 do
   checkDir $DIR
-  if [[ $? != 0 ]]; then
+  if [[ -s "$IMGS2" ]]; then
     correctionDir $DIR
   else
     echo "$DIR は補正対象がないため処理を行いません。"
